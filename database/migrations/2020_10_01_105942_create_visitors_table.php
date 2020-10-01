@@ -17,7 +17,7 @@ class CreateVisitorsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('name');
-            $table->boolean('status')->default(1);
+            $table->boolean('status')->default(0);
             $table->string('uniqueId');
             $table->timestamps();
         });
