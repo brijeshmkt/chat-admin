@@ -7,8 +7,13 @@ use Illuminate\Http\Request;
 class MessageController extends Controller
 {
 
-    public function store($request Request) {
-        print_r($request);
+
+    public function store(Request $request ) {
+        
+
+
+        // return $request;
+        return $request->msgTxt;
     }
     
     /**
