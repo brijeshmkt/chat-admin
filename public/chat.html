@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+	<button id="bm-open">Open form</button>
+
+	<div id="visitor-name-box">
+		Enter Your Name:
+		<input type="text" id="visitor-name-input">
+
+		<button id="bm-submit-visitor-name">Name</button>
+
+		
+	</div>
+
+	<hr>
+
+	<div id="chat-box">
+		
+	</div>
+
+	<hr>
+
+	<input type="text" id="bm-input-msg" name="" value="">
+
+	<button id="bm-submit" type="submit">Send</button>
+
+	<hr>
+	<button id="bm-close">Close</button>
+
+
+	<script>
+		
+
+		var storeDetails = {
+			email: 'brijeshmkt@gmail.com',
+			id: 2,
+		};
+
+
+		(function($){
+
+			const url = 'http://127.0.0.1:8000/'
+
+
+			const uniqueId = Math.floor(Math.random()*8999999999999999 + 100000000000000000);
+			console.log(uniqueId);
+
+
+			var visitorName = '';
+			var visitor_id = null;
+			var start_load = false;
+				
+			// console.log(storeOwnerEmail);
+
+			document.getElementById('bm-submit').addEventListener("click", readMsg);
+
+			document.getElementById('bm-submit-visitor-name').addEventListener("click", getVisitorName)
+
+			document.getElementById('bm-close').addEventListener("click", closeVisitor)
+
+			
+			function closeVisitor() {
+				console.log('close');
+		    	$.get( url + "update-status/" + visitor_id, function(data, status){
+		    		console.log(data);
+		    	});
+			}
+
+			
+			function readMsg() {
+				msgTxt = document.getElementById('bm-input-msg').value;
+				
+				
+				data = {
+		          visitor_id : visitor_id,
+		          msg: msgTxt,
+		          owner: 0,
+		          user_id: storeDetails.id
+		        }
+
+				
+
+
+
+				$.ajax({
+				  type: "GET",
+				  url: url + 'message',
+				  data: data,
+				  success: function(result) {
+	                
+	                console.log(result);
+
+	      
+
+		            },
+		            error: function(result) {
+		                // alert('msg');
+		            }
+				  
+				});
+
+
+
+			}
+
+
+			function getVisitorName() {
+
+				visitorName = document.getElementById('visitor-name-input').value;
+				console.log('visitors name is ' + visitorName);
+				document.getElementById('visitor-name-box').style.display = 'none';
+
+				data = {
+					user_id: storeDetails.id,
+					name: visitorName,
+					status: 1,
+					uniqueId: uniqueId
+				}
+				
+
+				$.ajax({
+				  type: "GET",
+				  url: url + 'addVisitor',
+				  data: data,
+				  success: function(result) {
+	                
+	                console.log(result);
+	                visitor_id = result.id;
+	                start_load = true;
+	                loadMsg();
+		            },
+		            error: function(result) {
+		                // alert('msg');
+		            }
+				  
+				});
+
+			}
+
+
+			function checkStoreOwnerStatus() {
+				// if live show popup
+			}
+
+
+			function loadMsg() {
+				setInterval(function(){ 
+				msgurl = url + "messages/" + visitor_id;
+				console.log(msgurl);
+			    	$.get( msgurl, function(data, status){
+    
+				      $( "#chat-box" ).html(data);
+				      console.log(data);
+				      console.log('fire');
+				    });
+			  }, 3000);
+			}
+
+
+			
+			
+			
+
+
+		})(jQuery);
+	</script>
+
+
+
+	
+</body>
+</html>
