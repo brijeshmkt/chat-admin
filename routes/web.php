@@ -34,3 +34,9 @@ Route::post('users/update/{id}','UserController@update')->name('user-update');
 Route::get('users/destroy/{id}','UserController@destroy')->name('user-destroy');
 Route::get('users/show/{id}','UserController@show')->name('user-view');
 Route::get('users/search', 'UserController@search')->name('user-search');
+
+//chat_messages route
+Route::get('chat_messages',function()
+{
+	return view('Admin.chatmessages.index');
+})->name('chat_messages');
