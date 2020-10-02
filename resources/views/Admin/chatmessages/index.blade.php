@@ -33,60 +33,50 @@
               <div class="middle-chat-user">
                   <div class="card">
                     <div class="d-flex p-3 bg-secondary text-white">
-                      <div class="image-card pull-left">
-                      <img class="card-img-top" src="{{asset('images/img_avatar3.jpeg')}}" alt="image">
-                      </div>
+                     
                       <div class="card-body pull-left">
-                      <h5 class="card-title">John Doe</h5>
-                      <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                      <h5 class="card-title">Alexandra</h5>
+                      <p class="card-text">IP Address: 172.217.166.4</p>
                       
                       </div>
                     </div>
                   </div>
                   <div class="card">
                     <div class="d-flex p-3 bg-default text-grey">
-                      <div class="image-card pull-left">
-                      <img class="card-img-top" src="{{asset('images/img_avatar3.jpeg')}}" alt="image">
-                      </div>
+                     
                       <div class="card-body pull-left">
-                      <h5 class="card-title">John Doe</h5>
-                      <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                      <h5 class="card-title">Diana</h5>
+                      <p class="card-text">IP Address: 172.217.166.4</p>
                       
                       </div>
                     </div>
                   </div>
                   <div class="card">
                     <div class="d-flex p-3 bg-default text-grey">
-                      <div class="image-card pull-left">
-                      <img class="card-img-top" src="{{asset('images/img_avatar3.jpeg')}}" alt="image">
-                      </div>
+                     
                       <div class="card-body pull-left">
-                      <h5 class="card-title">John Doe</h5>
-                      <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                      <h5 class="card-title">Julia</h5>
+                       <p class="card-text">IP Address: 172.217.166.4</p>
                       
                       </div>
                     </div>
                   </div>
                   <div class="card">
                     <div class="d-flex p-3 bg-default text-grey">
-                      <div class="image-card pull-left">
-                      <img class="card-img-top" src="{{asset('images/img_avatar3.jpeg')}}" alt="image">
-                      </div>
+                      
                       <div class="card-body pull-left">
-                      <h5 class="card-title">John Doe</h5>
-                      <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                      <h5 class="card-title">Sarah</h5>
+                     <p class="card-text">IP Address: 172.217.166.4</p>
                       
                       </div>
                     </div>
                   </div>
                   <div class="card">
                     <div class="d-flex p-3 bg-default text-grey">
-                      <div class="image-card pull-left">
-                      <img class="card-img-top" src="{{asset('images/img_avatar3.jpeg')}}" alt="image">
-                      </div>
+                     
                       <div class="card-body pull-left">
-                      <h5 class="card-title">John Doe</h5>
-                      <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                      <h5 class="card-title">Vanessa</h5>
+                      <p class="card-text">IP Address: 172.217.166.4</p>
                       
                       </div>
                     </div>
