@@ -25,6 +25,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/message', 'MessageController@store');
 
+Route::get('/addVisitor', 'VisitorController@store');
+
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
