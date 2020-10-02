@@ -46,7 +46,21 @@ Route::get('users/show/{id}','UserController@show')->name('user-view');
 Route::get('users/search', 'UserController@search')->name('user-search');
 
 //chat_messages route
-Route::get('chat_messages',function()
-{
-	return view('Admin.chatmessages.index');
-})->name('chat_messages');
+Route::get('chat_messages', 'MessageController@index' )->name('chat_messages');
+
+Route::get('active_visitors', 'MessageController@activeVisitors' )->name('active_visitors');
+
+Route::get('chat_messages/{id}', 'MessageController@activeVisitorsChat' );
+
+
+Route::get('messages/{id}', 'MessageController@getMessageById' );
+Route::get('update-status/{id}', 'VisitorController@updateStatusById' );
+
+
+
+
+
+// Route::get('chat_messages',function()
+// {
+// 	return view('Admin.chatmessages.index');
+// })->name('chat_messages');

@@ -10,6 +10,13 @@ use App\Visitor;
 class VisitorController extends Controller
 {
 
+    public function updateStatusById($id) {
+        $visitor = Visitor::find($id);
+        $visitor->status = 0;
+        $visitor->save();
+
+        return "success";
+    }
 
     public function store(Request $request ) {
         
@@ -22,7 +29,7 @@ class VisitorController extends Controller
 
 
 
-        return $request;
+        return $visitor;
 
         // // return $request->msgTxt;
 
