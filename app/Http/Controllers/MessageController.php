@@ -98,4 +98,7 @@ class MessageController extends Controller
     // {
     //     return view('home');
     // }
+    public function chateView(){
+        return view('chat_widget');
+    }
 }
