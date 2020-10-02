@@ -118,6 +118,13 @@
               <p>User</p>
             </a>
           </li>
+
+           <li class="nav-item">
+            <a href="{{route('chat_messages')}}" class="nav-link {{Request::route()->getName() == 'chat_messages' ? 'active' : '' }}">
+              <!-- <i class="nav-icon fas  fa-user"></i> -->
+              <p>Chats</p>
+            </a>
+          </li>
         
             
         
