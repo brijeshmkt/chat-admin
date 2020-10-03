@@ -25,6 +25,7 @@ class VisitorController extends Controller
         $visitor = New Visitor;
         $visitor->user_id = $request->user_id;
         $visitor->name = $request->name;
+        $visitor->email = $request->email;
         $visitor->status = 1;
         $visitor->uniqueId = $request->uniqueId;
 

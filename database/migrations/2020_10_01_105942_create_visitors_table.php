@@ -17,6 +17,7 @@ class CreateVisitorsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('name');
+            $table->string('email')->nullable();
             $table->boolean('status')->default(0);
             $table->string('uniqueId');
             $table->string('city')->nullable();
