@@ -13,7 +13,7 @@
 </head>
 <body>
 
-	<button id="bm-open">Open form</button>
+	<!-- <button id="bm-open">Open form</button>
 
 	<div id="visitor-name-box">
 		Enter Your Name:
@@ -37,11 +37,11 @@
 	<button id="bm-submit" type="submit">Send</button>
 
 	<hr>
-	<button id="bm-close">Close</button>
+	<button id="bm-close">Close</button> -->
 
 
 	<script>
-		
+
 
 		var storeDetails = {
 			email: 'brijeshmkt@gmail.com',
@@ -50,6 +50,16 @@
 
 
 		(function($){
+		
+				  $('<iframe>')                      // Creates the element
+				    .attr('src','http://127.0.0.1:8000/chateView') // Sets the attribute spry:region="myDs"
+				    .attr('id','rainbow-chat')
+				    .attr('height',800)
+				    .attr('width',400)
+				    .attr('scrolling','no')
+				    .attr('style','margin: 0px; padding: 0px; background: transparent; border: none; outline: none; display: block; position: fixed; z-index: 999990; bottom: -354px; right: 50px; overflow: hidden;')
+				    .appendTo('body');
+
 
 			const url = 'http://127.0.0.1:8000/'
 
