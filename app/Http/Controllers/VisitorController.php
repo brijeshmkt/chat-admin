@@ -19,12 +19,26 @@ class VisitorController extends Controller
     }
 
     public function store(Request $request ) {
+
+        // return $request->ipdata['city'];
         
         $visitor = New Visitor;
         $visitor->user_id = $request->user_id;
         $visitor->name = $request->name;
         $visitor->status = 1;
         $visitor->uniqueId = $request->uniqueId;
+
+        $visitor->city = $request->ipdata['city'];
+        $visitor->country_name = $request->ipdata['country_name'];
+        $visitor->ip = $request->ipdata['ip'];
+        $visitor->region = $request->ipdata['region'];
+        $visitor->timezone = $request->ipdata['timezone'];
+
+
+
+
+
+            
         $visitor->save();
 
 

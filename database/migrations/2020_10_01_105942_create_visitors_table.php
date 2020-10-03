@@ -19,6 +19,15 @@ class CreateVisitorsTable extends Migration
             $table->string('name');
             $table->boolean('status')->default(0);
             $table->string('uniqueId');
+            $table->string('city')->nullable();
+            $table->string('country_name')->nullable();
+            $table->string('ip')->nullable();
+            $table->string('region')->nullable();
+            $table->string('timezone')->nullable();
+
+
+            
+
             $table->timestamps();
         });
 

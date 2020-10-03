@@ -20,7 +20,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/chateView', 'MessageController@chateView')->name('chateView');
+Route::get('/chatview', 'MessageController@chateView')->name('chateView');
 
 
 

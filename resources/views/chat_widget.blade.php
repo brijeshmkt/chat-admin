@@ -98,12 +98,12 @@
 		<div class="chat">
 			<div class="chat-header">
 				<label  for="">Chat With US</label>
-				<p class="chat-close">X</p>
+				<p id="bm-close" class="chat-close">X</p>
 			</div>
 			<div id="visitor-name-box">
 				<label class="label-chat" for="">Enter Your Name:</label><br>
 				<input class="input-txt" type="text" id="visitor-name-input"><br>
-				<button class="chat-btn" id="bm-submit-visitor-name">Send</button>
+				<button class="chat-btn" id="bm-submit-visitor-name">Start Chat</button>
 			</div>
 			<div class="chat-sms-box">
 				<div id="chat-box">
@@ -120,4 +120,191 @@
 		</div>
 	</div>
 </body>
+
+
+<script>
+
+
+
+var params = location.href.split('?')[1].split('&');
+storeDetails = {};
+for (x in params)
+ {
+storeDetails[params[x].split('=')[0]] = params[x].split('=')[1];
+ }
+
+ 
+
+ 
+
+(function($, storeDetails){
+
+
+	const url = 'http://127.0.0.1:8000/'
+	const uniqueId = Math.floor(Math.random()*8999999999999999 + 100000000000000000);
+	
+	var visitorName = '';
+	var visitor_id = null;
+	var start_load = false;
+	var ipdata = null;
+	var time = 3000;
+	var refreshIntervalId = null;
+
+
+
+
+	// init functions
+	getIPData();
+
+
+
+
+
+
+		
+	// console.log(storeOwnerEmail);
+
+	document.getElementById('bm-submit').addEventListener("click", readMsg);
+
+	document.getElementById('bm-submit-visitor-name').addEventListener("click", getVisitorName)
+
+	document.getElementById('bm-close').addEventListener("click", closeVisitor)
+
+	
+	function closeVisitor() {
+		console.log('close');
+    	$.get( url + "update-status/" + visitor_id, function(data, status){
+    		console.log(data);
+    	});
+
+    	clearInterval(refreshIntervalId);
+    	
+	}
+
+	
+	function readMsg() {
+		msgTxt = document.getElementById('bm-input-msg').value;
+		
+		
+		data = {
+          visitor_id : visitor_id,
+          msg: msgTxt,
+          owner: 0,
+          user_id: storeDetails.storeOwnerId,
+          
+        }
+        console.log(data);
+
+		
+
+
+
+		$.ajax({
+		  type: "GET",
+		  url: url + 'message',
+		  data: data,
+		  success: function(result) {
+            
+            // console.log(result);
+
+  
+
+            },
+            error: function(result) {
+                // alert('msg');
+            }
+		  
+		});
+
+
+
+	}
+
+	function getIPData () {
+		$.getJSON('https://ipapi.co/json/', function(data) {
+			ipdata = data;
+  			
+		});
+		
+		
+	}
+
+
+	function getVisitorName() {
+
+		visitorName = document.getElementById('visitor-name-input').value;
+		// console.log('visitors name is ' + visitorName);
+		document.getElementById('visitor-name-box').style.display = 'none';
+
+
+
+		visitorData = {
+			user_id: storeDetails.storeOwnerId,
+			name: visitorName,
+			status: 1,
+			uniqueId: uniqueId,
+			ipdata: ipdata,
+		}
+
+		// console.log(visitorData);
+		
+
+		$.ajax({
+		  type: "GET",
+		  url: url + 'addVisitor',
+		  data: visitorData,
+		  success: function(result) {
+            
+            // console.log(result);
+            visitor_id = result.id;
+            start_load = true;
+            console.log(visitor_id);
+            loadMsg();
+            },
+            error: function(result) {
+                // alert('msg');
+            }
+		  
+		});
+
+	}
+
+
+	function checkStoreOwnerStatus() {
+		// if live show popup
+	}
+
+
+	function loadMsg() {
+		 refreshIntervalId = setInterval(function(){ 
+			msgurl = url + "messages/" + visitor_id;
+			console.log(msgurl);
+		    	$.get( msgurl, function(data, status){
+
+			      $( "#chat-box" ).html(data);
+			      console.log(data);
+			      console.log('fire');
+			    });
+		  }, time);
+	}
+
+
+	
+
+
+	
+	
+	
+
+
+})(jQuery, storeDetails);
+
+
+
+</script>
+
+
+
+
+
 </html>
