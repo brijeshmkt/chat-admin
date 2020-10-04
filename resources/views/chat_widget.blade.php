@@ -1,4 +1,3 @@
-
 <html>
 <head>
 	<meta charset="utf-8">
@@ -11,8 +10,8 @@
 		  crossorigin="anonymous"></script>
 	<style>
 		.chat-wrrap{
-			height: 800px;
-			width: 100%;
+			height: 330px;
+			width: 400px;
 		}
 		.chat-header {
 			background: -webkit-linear-gradient(-180deg, #005f32, #53b04b);
@@ -30,6 +29,7 @@
 			border:1px solid #469f32;
 			border-top-left-radius: 10px;
 			border-top-right-radius: 10px;
+			height: 304px;
 		}
 		.label-chat {
 			margin-left: 10%;
@@ -110,6 +110,28 @@
 			display: none;
 		}
 
+		.close-box {
+			cursor: pointer;
+		}
+
+		
+
+		
+
+		.close-box {
+			background-color: green;
+			display: inline-block;
+    		padding: 10px;
+    		margin-top: 10px;
+    		float: right;
+    		border-radius: 50%;
+    		position: absolute;
+    		bottom: 10px;
+    		right: 10px;
+		}
+
+		
+
 	</style>
 	
 </head>
@@ -118,20 +140,15 @@
 		<div class="chat">
 			<div class="chat-header">
 				<label  for="">Chat With US</label>
-				<p class="chat-close">
-					<span id="bm-close"><img src="{{asset('images/close.png')}}" alt=""></span>
-					<span class="bm-open"><img src="{{asset('images/eye.png')}}" alt=""></span>
-				</p>
-				
 			</div>
 			<div id="visitor-name-box">
 				<div class="formgroup">
 					<label class="label-chat" for="">Enter Your Name:</label><br>
-					<input class="input-txt" placeholder="Full Name" type="text" id="visitor-name-input"><br>
+					<input class="input-txt" placeholder="Full Name" type="text" id="visitor-name-input">
 				</div>
 				<div class="formgroup">
 					<label class="label-chat" for="">Enter Your Email:</label><br>
-					<input class="input-txt" placeholder="Email" type="email" id="visitor-email-input"><br>
+					<input class="input-txt" placeholder="Email" type="email" id="visitor-email-input">
 				</div>
 				<button class="chat-btn" id="bm-submit-visitor-name">Start Chat</button>
 			</div>
@@ -146,6 +163,12 @@
 					<button id="bm-submit" class="chat-btn-send" type="submit">Send</button>
 				</div>
 			</div>
+		</div>
+		<div class="footer">
+			<div class="close-box" id="bm-close">
+				<img src="{{asset('images/close.png')}}" alt="">
+			</div>
+			
 		</div>
 	</div>
 </body>
@@ -187,6 +210,9 @@ storeDetails[params[x].split('=')[0]] = params[x].split('=')[1];
 	getIPData();
 
 
+	// document.getElementById('hemstad-live-chat').style.width='500px';
+
+
 
 
 
@@ -218,10 +244,12 @@ storeDetails[params[x].split('=')[0]] = params[x].split('=')[1];
 
     	clearInterval(refreshIntervalId);
     	
-    	$(".chat-sms-box").hide(1000);
-    	$("#bm-close").hide(1000);
-    	$("#visitor-name-box").hide(1000);
-    	$(".bm-open").show(1000);
+    	$(".chat").hide(1000);
+    	
+
+
+    	// $('iframe').attr('height',0);
+    	
 
     	
 
