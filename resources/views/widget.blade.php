@@ -30,13 +30,14 @@
             </button>
           </div>
         </div>
+        
         <div class="card-body">
           <textarea class="form-control" style="min-width: 100%; min-height: 200px">
             <script>
                 var storeOwnerEmail = '{{ Auth::user()->email }}';
                 var storeOwnerId = {{ Auth::user()->id }}; 
             </script>
-            <script src="http://127.0.0.1:8000/js/hemstad.js"  async defer></script>
+            <script src="{{ Request::getSchemeAndHttpHost() }}/js/hemstad.js"  async defer></script>
           </textarea>
           
         </div>
