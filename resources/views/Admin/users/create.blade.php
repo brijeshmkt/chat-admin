@@ -54,21 +54,14 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword">Password</label>
-                    <input type="password" name="password" value="{{old('password')}}" class="form-control" placeholder="Enter Password">
+                    <input type="text" name="password" value="{{old('password')}}" class="form-control" placeholder="Enter Password">
                     @if ($errors->has('password'))
                     <span class="text-danger">{{ $errors->first('password') }}</span>
                     @endif
 
                   </div>
                   
-                  <div class="form-group">
-                    <label for="exampleInputPassword">Confirm Password</label>
-
-                    <input type="password" name="password_confirmation" value="{{old('password_confirmation')}}" class="form-control" placeholder="Enter Confirm Password">
-                    @if ($errors->has('password_confirmation'))
-                    <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
-                    @endif
-                  </div>
+                  
                   
                 </div>
               </div>

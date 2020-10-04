@@ -65,7 +65,12 @@ Route::get('insert-web-visitors', 'VisitorController@insertWebVisitors' );
 
 
 Route::get('website-visitors', 'VisitorController@websiteVisitors' );
+Route::get('active-count', 'VisitorController@activeCount' );
 
+
+Route::get('blocked-ip', 'IpController@index' );
+
+Route::get('add-block-ip', 'IpController@block' );
 
 
 

@@ -7,10 +7,16 @@ use Illuminate\Http\Request;
 use App\Message;
 use App\Visitor;
 use App\Websitevisitor;
+use Auth;
 
 class VisitorController extends Controller
 {
-
+    public function activeCount() {
+        $count = Websitevisitor::where('user_id', '=', Auth::user()->id)
+                    ->where('status', '=', 0)
+                    ->count();
+        return $count;
+    }
     public function insertWebVisitors(Request $request) {
 
         $visitor = New Websitevisitor;
@@ -30,7 +36,20 @@ class VisitorController extends Controller
 
     public function websiteVisitors(Request $request) {
 
-        return $request;
+        Websitevisitor::where('status', 1)
+          ->where('user_id', Auth::user()->id)
+          ->update(['status' => 0]);
+
+        $visitors = Websitevisitor::where('user_id', '=', Auth::user()->id)->get();
+        $data = [
+            'visitors' => $visitors
+        ];
+
+
+
+        return view('web-visitors', $data);
+
+        
     }
 
     public function chatHistory() {

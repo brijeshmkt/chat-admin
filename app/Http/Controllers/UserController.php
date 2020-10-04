@@ -24,7 +24,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required',
-            'password_confirmation' => 'required|same:password',
+            
            
             
         ],[
@@ -33,7 +33,7 @@ class UserController extends Controller
             'email.email'=>'Please Add Valid Email',
             'email.unique'=>'Please Already Use Email',
             'password.required'=>'Password is required.',
-            'password_confirmation.required'=>'Confirmation Password is required.',
+            
           
            
         ]);
@@ -41,7 +41,6 @@ class UserController extends Controller
         $user->name=$request->get('name');
         $user->email=$request->get('email');
         $user->password=Hash::make($request->get('password'));
-        $user->password_confirmation=Hash::make($request->get('password_confirmation'));
        
         $user->save();
         

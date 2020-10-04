@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../css/custom.css">
   <script src="../../plugins/jquery/jquery.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -32,9 +33,9 @@
       
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ url('/website-visitors') }}">
           <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+          <span class="badge badge-warning navbar-badge">0</span>
         </a>
         
       </li>
@@ -119,30 +120,7 @@
               
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Analytics
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../charts/chartjs.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Over View</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../charts/flot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Visitors Log</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
+          
 
           <li class="nav-item">
             <a href="{{ url('/users') }}" class="nav-link">
@@ -178,12 +156,7 @@
                   <p>Website Visitors</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="../mailbox/mailbox.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>By Country</p>
-                </a>
-              </li>
+              
               
             </ul>
           </li>
@@ -237,5 +210,17 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+<script>
+
+  setInterval(function(){ 
+    console.log('count added');
+    $.get( "/active-count", function( data ) {
+      $('.navbar-badge').text(data);
+    });
+
+  }, 9000);
+  
+  
+</script>
 </body>
 </html>
