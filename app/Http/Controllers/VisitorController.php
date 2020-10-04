@@ -6,9 +6,32 @@ use Illuminate\Http\Request;
 
 use App\Message;
 use App\Visitor;
+use App\Websitevisitor;
 
 class VisitorController extends Controller
 {
+
+    public function insertWebVisitors(Request $request) {
+
+        $visitor = New Websitevisitor;
+        $visitor->user_id =  $request->user_id;
+        $visitor->uniqueId =  $request->uniqueId;
+        $visitor->page =  $request->page;
+        $visitor->city =  $request->city;
+        $visitor->country_name =  $request->country_name;
+        $visitor->ip =  $request->ip;
+        $visitor->region =  $request->region;
+        $visitor->timezone =  $request->timezone;
+        $visitor->save();
+
+
+         return $request;
+    }
+
+    public function websiteVisitors(Request $request) {
+
+        return $request;
+    }
 
     public function chatHistory() {
         $visitors = Visitor::all();

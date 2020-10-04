@@ -235,6 +235,13 @@ storeDetails[params[x].split('=')[0]] = params[x].split('=')[1];
     	$(".bm-open").hide(1000);
 	});
 
+	window.onbeforeunload = function () {
+		alert('closing');
+  		$.get( url + "update-status/" + visitor_id, function(data, status){
+    		console.log(data);
+    	});
+ 	}
+
 	
 	function closeVisitor() {
 		console.log('close');
@@ -298,7 +305,31 @@ storeDetails[params[x].split('=')[0]] = params[x].split('=')[1];
 	function getIPData () {
 		$.getJSON('https://ipapi.co/json/', function(data) {
 			ipdata = data;
+
+
+			// Lets store website visitors data to 
+			ipdata.page = window.location.href;
+			ipdata.user_id = storeDetails.storeOwnerId;
+			ipdata.uniqueId = uniqueId;
+
+
+			
+
+
+			$.ajax({
+			  type: "GET",
+			  url: url + 'insert-web-visitors',
+			  data: ipdata,
+			  success: function(result) {
+	            
+	            console.log(result);
+	           
+	            },
+	            error: function(result) {
+	                // alert('msg');
+	            }
   			
+			});
 		});
 		
 		

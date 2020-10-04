@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <script src="../../plugins/jquery/jquery.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -172,6 +173,12 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+                <a href="{{ url('/website-visitors') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Website Visitors</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="../mailbox/mailbox.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>By Country</p>
@@ -223,7 +230,7 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->

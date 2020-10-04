@@ -1,14 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<style type="text/css">
-  .middle-chat-user, .single-chatting{
-      height: 380px;
-    overflow-y: scroll;
-}
 
-  
-</style>
 <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -29,7 +22,7 @@
     <section class="content">
       <div class="row">
 
-        <div class="col-md-3" id="active-users">
+        <div class="col-md-3 my-active-users">
 
         </div>
 
@@ -78,13 +71,13 @@
 
   $.get("/active_visitors", function(data, status){
     
-      $( "#active-users" ).html(data);
+      $( ".my-active-users" ).html(data);
     });
 
   setInterval(function(){ 
     $.get("/active_visitors", function(data, status){
     
-      $( "#active-users" ).html(data);
+      $( ".my-active-users" ).html(data);
     });
   }, 3000);
   

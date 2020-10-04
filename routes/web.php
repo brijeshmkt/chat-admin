@@ -61,6 +61,12 @@ Route::get('update-status/{id}', 'VisitorController@updateStatusById' );
 Route::get('chat-history', 'VisitorController@chatHistory' );
 
 
+Route::get('insert-web-visitors', 'VisitorController@insertWebVisitors' );
+
+
+Route::get('website-visitors', 'VisitorController@websiteVisitors' );
+
+
 
 
 
