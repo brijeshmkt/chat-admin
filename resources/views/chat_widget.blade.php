@@ -12,6 +12,11 @@
 		.chat-wrrap{
 			height: 330px;
 			width: 400px;
+			background-color: #ffffff;
+			border:1px solid #ffffff;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+
 		}
 		.chat-header {
 			background: -webkit-linear-gradient(-180deg, #005f32, #53b04b);
