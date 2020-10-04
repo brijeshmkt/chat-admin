@@ -10,6 +10,16 @@ use App\Visitor;
 class VisitorController extends Controller
 {
 
+    public function chatHistory() {
+        $visitors = Visitor::all();
+        
+
+        $data = [
+            'visitors' => $visitors
+        ];
+        return view('chat-history', $data);
+    }
+
     public function updateStatusById($id) {
         $visitor = Visitor::find($id);
         $visitor->status = 0;

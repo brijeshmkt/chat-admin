@@ -58,6 +58,12 @@ Route::get('messages/{id}', 'MessageController@getMessageById' );
 Route::get('update-status/{id}', 'VisitorController@updateStatusById' );
 
 
+Route::get('chat-history', 'VisitorController@chatHistory' );
+
+
+
+
+
 
 
 
