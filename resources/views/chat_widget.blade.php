@@ -12,8 +12,8 @@
 		.chat-wrrap{
 			height: 330px;
 			width: 400px;
-			background-color: #ffffff;
-			border:1px solid #ffffff;
+			
+			
 			border-top-left-radius: 10px;
 			border-top-right-radius: 10px;
 
@@ -31,6 +31,7 @@
 			justify-content: space-between;
 		}
 		.chat{
+			background-color: #ffffff;
 			border:1px solid #469f32;
 			border-top-left-radius: 10px;
 			border-top-right-radius: 10px;
@@ -196,8 +197,8 @@ storeDetails[params[x].split('=')[0]] = params[x].split('=')[1];
 (function($, storeDetails){
 
 
-	// const url = 'http://livechat.paytributeto.com/';
-	const url = 'http://127.0.0.1:8000/';
+	const url = 'http://livechat.paytributeto.com/';
+	// const url = 'http://127.0.0.1:8000/';
 	const uniqueId = Math.floor(Math.random()*8999999999999999 + 100000000000000000);
 	
 	var visitorName = '';
@@ -242,18 +243,22 @@ storeDetails[params[x].split('=')[0]] = params[x].split('=')[1];
 
 	window.onbeforeunload = function () {
 		alert('closing');
-  		$.get( url + "update-status/" + visitor_id, function(data, status){
-    		console.log(data);
-    	});
+		if(visitor_id) {
+			$.get( url + "update-status/" + visitor_id, function(data, status){
+	    		console.log(data);
+	    	});
+		}
+  		
  	}
 
 	
 	function closeVisitor() {
 		console.log('close');
-    	$.get( url + "update-status/" + visitor_id, function(data, status){
-    		console.log(data);
-    	});
-
+		if(visitor_id) {
+	    	$.get( url + "update-status/" + visitor_id, function(data, status){
+	    		console.log(data);
+	    	});
+    	}
     	clearInterval(refreshIntervalId);
     	
     	$(".chat").hide(1000);
@@ -313,7 +318,7 @@ storeDetails[params[x].split('=')[0]] = params[x].split('=')[1];
 
 
 			// Lets store website visitors data to 
-			ipdata.page = window.location.href;
+			ipdata.page = storeDetails.trackurl;
 			ipdata.user_id = storeDetails.storeOwnerId;
 			ipdata.uniqueId = uniqueId;
 

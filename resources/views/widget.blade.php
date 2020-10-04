@@ -34,6 +34,7 @@
         <div class="card-body">
           <textarea class="form-control" style="min-width: 100%; min-height: 200px">
             <script>
+                var trackurl = window.location.href;
                 var storeOwnerEmail = '{{ Auth::user()->email }}';
                 var storeOwnerId = {{ Auth::user()->id }}; 
             </script>
