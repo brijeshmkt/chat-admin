@@ -1,21 +1,19 @@
 @extends('layouts.master')
 
 @section('content')
+
+
+<!-- Content Header (Page header) -->
 <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>List Users</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
-              <li class="breadcrumb-item active">List User</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Users</h1>
+      </div>
+      
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
     
 
  <!-- Main content -->
@@ -32,12 +30,7 @@
                  <a href="{{route('user-add')}}" class="btn btn-success">Add User</a>
                 <div class="card-tools">
                   <div>
-                    <form method="get" action="{{route('user-search')}}" class="input-group input-group-sm" style="width: 350px;">
-                      <input type="text" name="search" class="form-control float-right" placeholder="Search">
-                      <div class="input-group-append">
-                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                    </div>                      
-                    </form>
+                    
 
                   </div>
                 </div>

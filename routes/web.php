@@ -22,7 +22,7 @@ Auth::routes();
 
 Route::get('/chatview', 'MessageController@chateView')->name('chateView');
 
-
+Route::get('/widget', 'HomeController@widget')->name('widget');
 
 
 Route::get('/message', 'MessageController@store');
