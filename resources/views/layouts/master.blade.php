@@ -121,13 +121,14 @@
             </ul>
           </li>
           
-
+          @if(Auth::user()->id == 1)
           <li class="nav-item">
             <a href="{{ url('/users') }}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>Users</p>
             </a>
           </li>
+          @endif
           
           
           <li class="nav-item">
